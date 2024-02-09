@@ -1,0 +1,23 @@
+{
+  "name": "thematic-web-app",
+  "version": "0.0.0",
+  "description": "Web interface for processing and editing transcriptions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenThematic/web-app.git"
+  },
+  "keywords": [
+    "transcription",
+	"thematic coding"
+  ],
+  "author": "OpenThematic",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/OpenThematic/web-app/issues"
+  },
+  "homepage": "https://github.com/OpenThematic/web-app#readme"
+}
