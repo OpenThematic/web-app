@@ -1,0 +1,31 @@
+#sidebar {
+	width: 30rem;
+	background-color: var(--color-background);
+	border-right: .1rem solid var(--color-text);
+	overflow-y: auto;
+}
+
+#sidebar > div {
+	padding: 5rem;
+}
+
+.logo {
+	display: flex;
+	gap: 1rem;
+	font-size: 2rem;
+	font-family: Roboto Slab;
+	font-weight: bold;
+}
+
+.logo > div {
+	height: 3rem;
+	width: 3rem;
+	background-color: var(--color-text);
+	border-radius: .5rem;
+}
+
+#sidebar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}

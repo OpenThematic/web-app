@@ -1,0 +1,5 @@
+#breadcrumbs {
+	padding: 2rem;
+	color: var(--color-background);
+	background-color: var(--color-text);
+}
