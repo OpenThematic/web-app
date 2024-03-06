@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Breadcrumbs from './modules/Breadcrumbs.jsx';
-import Sidebar from './modules/Sidebar.jsx';
-import ProjectsView from './pages/ProjectsView.jsx';
-import TeamView from './pages/TeamView.jsx';
-import UsageView from './pages/UsageView.jsx';
-import DocumentationView from './pages/DocumentationView.jsx';
+import Breadcrumbs from './shared/Breadcrumbs.jsx';
+import Sidebar from './shared/Sidebar.jsx';
+import ProjectsView from './features/Projects/ProjectsView.jsx';
+import TeamView from './features/Team/TeamView.jsx';
+import UsageView from './features/Usage/UsageView.jsx';
+import DocumentationView from './features/Documentation/DocumentationView.jsx';
 
 function App()
 {
