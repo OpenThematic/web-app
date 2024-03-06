@@ -2,4 +2,10 @@
 	padding: 1.5rem 5rem;
 	font-size: 1.6rem;
 	font-weight: 600;
+	cursor: pointer;
+}
+
+.navigation-item:hover {
+	color: var(--color-background);
+	background: var(--color-text);
 }

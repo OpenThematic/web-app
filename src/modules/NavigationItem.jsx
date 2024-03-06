@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom';
 import './NavigationItem.css';
 
-function NavigationItem({ text })
+function NavigationItem({ text, url })
 {
-	return <li className='navigation-item'>
-		{text}
-	</li>
+	return <Link to={url}>
+		<li className='navigation-item'>
+			{text}
+		</li>
+	</Link>
 }
 
 export default NavigationItem;
