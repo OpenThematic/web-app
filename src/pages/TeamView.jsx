@@ -1,7 +1,9 @@
+import './TeamView.css'
+
 const TeamView = () =>
 {
 	return (
-		<div>
+		<div id="view">
 			<h1>Team</h1>
 			<p>This is the team page.</p>
 		</div>

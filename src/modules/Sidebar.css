@@ -33,3 +33,11 @@
 #sidebar ul > a {
 	display: contents;
 }
+
+#sidebar ul li {
+	color: var(--color-text);
+}
+
+#sidebar ul li:hover {
+	color: var(--color-background);
+}

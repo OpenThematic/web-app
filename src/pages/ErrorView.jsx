@@ -1,3 +1,4 @@
+import './ErrorView.css';
 import { useRouteError } from "react-router-dom";
 
 const ErrorView = () =>
@@ -6,7 +7,7 @@ const ErrorView = () =>
 	console.error(error);
 
 	return (
-		<div>
+		<div id="view">
 			<h1>404</h1>
 			<p>Page not found</p>
 			<p>{error.statusText || error.message}</p>
