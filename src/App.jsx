@@ -10,8 +10,10 @@ import NotFoundView from './features/Error/NotFoundView.jsx';
 
 function App()
 {
+	const baseUrl = import.meta.env.BASE_URL;
+
 	return <div id='app'>
-		<BrowserRouter>
+		<BrowserRouter basename={baseUrl ?? '/'}>
 			<Sidebar />
 			<div id='main'>
 				<Breadcrumbs />
