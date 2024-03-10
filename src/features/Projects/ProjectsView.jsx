@@ -1,11 +1,15 @@
-import './ProjectsView.css';
+import ProjectItem from './components/ProjectItem.jsx';
+import styles from './ProjectsView.module.css';
 
 const ProjectsView = () =>
 {
 	return (
-		<div id="view">
-			<h1>Projects</h1>
-			<p>This is the projects page.</p>
+		<div id={styles.view}>
+			<div id={styles.projectList}>
+				{[...Array(3)].map((_, index) => (
+					<ProjectItem key={index} />
+				))}
+			</div>
 		</div>
 	);
 }

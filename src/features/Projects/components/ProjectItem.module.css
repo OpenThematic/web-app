@@ -1,0 +1,77 @@
+.item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--color-background);
+}
+
+.item > div {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.image {
+	height: 5rem;
+	width: 5rem;
+	background-color: var(--color-background-dark-2);
+	border-radius: 10rem;
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+}
+
+.text h3 {
+	margin: 0;
+}
+
+.text p {
+	margin: 0;
+	color: var(--color-text-light);
+}
+
+.collaborators {
+	color: var(--color-text-faded);
+}
+
+.collaborators > div {
+	display: flex;
+}
+
+.collaborators .collaborator {
+	height: 3.2rem;
+	width: 3.2rem;
+	background-color: var(--color-background-dark-2);
+	border: 1px solid var(--color-text);
+	border-radius: 10rem;
+}
+
+.collaborators .collaborator:not(:first-child) {
+	margin-left: -1rem;
+}
+
+.status {
+	display: flex;
+	flex-direction: column;
+}
+
+.status p {
+	margin: 0;
+}
+
+.status p:first-child {
+	color: var(--color-text-light);
+}
+
+.status p:last-child {
+	color: var(--color-text-faded);
+}
+
+.progress {
+	height: 3.2rem;
+	width: 3.2rem;
+	background-color: var(--color-background-dark-2);
+	border-radius: 10rem;
+}

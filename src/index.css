@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 
 :root {
+	--color-primary: #E46731;
+	--color-warning: #A54747;
 	--color-text: #332F2C;
+	--color-text-light: #827068;
+	--color-text-faded: #332f2c86;
 	--color-background: #FAFAFA;
 	--color-background-dark: #F6F6F6;
+	--color-background-dark-2: #E6E6E6;
+
+	--border-radius: 1rem;
 
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
@@ -37,4 +44,11 @@ body {
 h1 {
 	font-size: 2rem;
 	line-height: 1.1;
+}
+
+.card {
+	padding: 3rem;
+	background-color: var(--color-background);
+	box-shadow: 0 0 5rem rgba(0, 0, 0, .05);
+	border-radius: var(--border-radius);
 }

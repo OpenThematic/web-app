@@ -1,0 +1,9 @@
+#view {
+	padding: 10rem;
+}
+
+#projectList {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
