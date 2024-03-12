@@ -1,0 +1,7 @@
+.badge {
+	width: 4rem;
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+	background-color: var(--color-background-dark-2);
+	border: .1rem solid var(--color-text);
+}
