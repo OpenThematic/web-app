@@ -1,5 +1,6 @@
 #view {
 	padding: 10rem;
+	overflow: auto;
 }
 
 #projectList {
