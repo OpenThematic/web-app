@@ -1,8 +1,18 @@
 import React from 'react';
 import styles from './ProjectItem.module.css';
+import User from '../../../shared/models/user.js';
+import CollaboratorList from '../../../shared/CollaboratorList.jsx';
 
 const ProjectItem = () =>
 {
+	let mockUsers = [
+		new User(1, "John", "Doe", "john.doe@example.com"),
+		new User(2, "Jane", "Smith", "jane.smith@example.com"),
+		new User(3, "Michael", "Johnson", "michael.johnson@example.com"),
+		new User(4, "Emily", "Williams", "emily.williams@example.com"),
+		new User(5, "David", "Brown", "david.brown@example.com"),
+	];
+
 	return (
 		<div className={styles.item + " card"}>
 			<div>
@@ -13,11 +23,7 @@ const ProjectItem = () =>
 				</div>
 			</div>
 			<div className={styles.collaborators}>
-				<div>
-					{[...Array(5)].map((_, index) => (
-						<div className={styles.collaborator} key={index}></div>
-					))}
-				</div>
+				<CollaboratorList users={mockUsers} />
 				<p>7 collaborators</p>
 			</div>
 			<div>
