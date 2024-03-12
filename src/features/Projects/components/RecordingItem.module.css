@@ -1,0 +1,42 @@
+h3 {
+	margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+.recording {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	color: var(--color-text);
+}
+
+.recording .header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.recording .header p {
+	color: var(--color-text-light);
+}
+
+.recording .waveform {
+	height: 3rem;
+	background-color: var(--color-background-dark-2);
+}
+
+.recording .footer {
+	display: flex;
+	justify-content: space-between;
+}
+
+.recording .footer .steps {
+	display: flex;
+	gap: 1rem;
+}
+
+.recording .footer p {
+	color: var(--color-text-light);
+}

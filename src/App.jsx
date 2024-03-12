@@ -7,6 +7,7 @@ import TeamView from './features/Team/TeamView.jsx';
 import UsageView from './features/Usage/UsageView.jsx';
 import DocumentationView from './features/Documentation/DocumentationView.jsx';
 import NotFoundView from './features/Error/NotFoundView.jsx';
+import ProjectView from './features/Projects/ProjectView.jsx';
 
 function App()
 {
@@ -20,6 +21,7 @@ function App()
 				<Routes>
 					<Route exact path="/" element={<ProjectsView />} />
 					<Route path="/projects" element={<ProjectsView />} />
+					<Route path="/projects/project" element={<ProjectView />} />
 					<Route path="/team" element={<TeamView />} />
 					<Route path="/usage" element={<UsageView />} />
 					<Route path="/documentation" element={<DocumentationView />} />

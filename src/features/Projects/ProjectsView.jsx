@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import ProjectItem from './components/ProjectItem.jsx';
 import styles from './ProjectsView.module.css';
 
@@ -7,7 +8,7 @@ const ProjectsView = () =>
 		<div id={styles.view}>
 			<div id={styles.projectList}>
 				{[...Array(3)].map((_, index) => (
-					<ProjectItem key={index} />
+					<Link to="project"><ProjectItem key={index} /></Link>
 				))}
 			</div>
 		</div>
