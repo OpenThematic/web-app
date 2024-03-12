@@ -8,6 +8,7 @@ import UsageView from './features/Usage/UsageView.jsx';
 import DocumentationView from './features/Documentation/DocumentationView.jsx';
 import NotFoundView from './features/Error/NotFoundView.jsx';
 import ProjectView from './features/Projects/ProjectView.jsx';
+import HomeView from './features/Home/HomeView.jsx';
 
 function App()
 {
@@ -19,7 +20,7 @@ function App()
 			<div id='main'>
 				<Breadcrumbs />
 				<Routes>
-					<Route exact path="/" element={<ProjectsView />} />
+					<Route exact path="/" element={<HomeView />} />
 					<Route path="/projects" element={<ProjectsView />} />
 					<Route path="/projects/project" element={<ProjectView />} />
 					<Route path="/team" element={<TeamView />} />
