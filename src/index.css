@@ -10,7 +10,7 @@
 	--color-background-dark: #F6F6F6;
 	--color-background-dark-2: #E6E6E6;
 
-	--border-radius: 1rem;
+	--border-radius: .5rem;
 
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
