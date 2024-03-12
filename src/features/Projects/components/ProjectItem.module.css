@@ -12,6 +12,7 @@
 }
 
 .image {
+	flex-shrink: 0;
 	height: 5rem;
 	width: 5rem;
 	background-color: var(--color-background-dark-2);
@@ -70,6 +71,7 @@
 }
 
 .progress {
+	flex-shrink: 0;
 	height: 3.2rem;
 	width: 3.2rem;
 	background-color: var(--color-background-dark-2);
