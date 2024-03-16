@@ -4,11 +4,13 @@
 }
 
 .paragraph .time {
+	flex-shrink: 0;
 	width: 6rem;
 	color: var(--color-text-faded);
 }
 
 .paragraph .speaker {
+	flex-shrink: 0;
 	width: 12rem;
 	color: var(--color-text-light);
 }
