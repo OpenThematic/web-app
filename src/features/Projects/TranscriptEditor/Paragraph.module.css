@@ -1,0 +1,14 @@
+.paragraph {
+	display: flex;
+	gap: 3rem;
+}
+
+.paragraph .time {
+	width: 6rem;
+	color: var(--color-text-faded);
+}
+
+.paragraph .speaker {
+	width: 12rem;
+	color: var(--color-text-light);
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './RecordingView.module.css';
 import FileInput from '../../shared/FileInput.jsx';
+import Paragraph from './TranscriptEditor/Paragraph.jsx';
 
 function RecordingView()
 {
@@ -29,10 +30,8 @@ function RecordingView()
 			{!transcript && <FileInput text={"Add JSON"} onChange={handleFileSelected} />}
 			{transcript && (
 				<div>
-					{transcript.map((line, index) => (
-						<p key={index}>
-							{line.text}
-						</p>
+					{transcript.map((data, index) => (
+						<Paragraph data={data} key={index} />
 					))}
 				</div>
 			)}
