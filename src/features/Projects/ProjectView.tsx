@@ -2,17 +2,16 @@ import React from 'react';
 import styles from './ProjectView.module.css';
 import { Link } from 'react-router-dom';
 import RecordingItem from './components/RecordingItem.jsx';
-import CollaboratorList from '../../shared/CollaboratorList.jsx';
-import User from '../../shared/models/user.js';
+import CollaboratorList from '../../shared/CollaboratorList.js';
+import { User } from '../../shared/models/user';
 
-const ProjectView = () =>
-{
+const ProjectView = () => {
 	let mockUsers = [
-		new User(1, "John", "Doe", "john.doe@example.com"),
-		new User(2, "Jane", "Smith", "jane.smith@example.com"),
-		new User(3, "Michael", "Johnson", "michael.johnson@example.com"),
-		new User(4, "Emily", "Williams", "emily.williams@example.com"),
-		new User(5, "David", "Brown", "david.brown@example.com"),
+		new User(1, "John", "Doe", "john.doe@example.com", "https://randomuser.me/api/portraits"),
+		new User(2, "Jane", "Smith", "jane.smith@example.com", "https://randomuser.me/api/portraits"),
+		new User(3, "Michael", "Johnson", "michael.johnson@example.com", "https://randomuser.me/api/portraits"),
+		new User(4, "Emily", "Williams", "emily.williams@example.com", "https://randomuser.me/api/portraits"),
+		new User(5, "David", "Brown", "david.brown@example.com", "https://randomuser.me/api/portraits"),
 	];
 
 	return (

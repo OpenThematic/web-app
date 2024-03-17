@@ -1,8 +1,7 @@
-import NavigationItem from './NavigationItem.jsx';
+import NavigationItem from './NavigationItem.js';
 import './Sidebar.css';
 
-function Sidebar()
-{
+const Sidebar = () => {
 	return <div id='sidebar'>
 		<div className="logo"><div></div>OpenThematic</div>
 		<ul>

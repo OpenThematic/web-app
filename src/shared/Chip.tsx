@@ -1,8 +1,10 @@
-import React from 'react';
 import styles from './Chip.module.css';
 
-function Chip({ label })
-{
+type Props = {
+	label: string;
+}
+
+const Chip = ({ label }: Props) => {
 	return (
 		<div className={styles.chip}>
 			{label}

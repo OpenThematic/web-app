@@ -1,10 +1,11 @@
-import React from 'react';
 import styles from './Paragraph.module.css';
-import { formatSeconds } from '../../../shared/utils/time.js';
+import { formatSeconds } from '../../../shared/utils/time';
 
-const Paragraph = ({data}) =>
-{
-	console.log(data);
+type Props = {
+	data: Transcript;
+};
+
+const Paragraph = ({ data }: Props) => {
 	return (
 		<div className={styles.paragraph}>
 			<p className={styles.time}>{formatSeconds(data.start)}</p>

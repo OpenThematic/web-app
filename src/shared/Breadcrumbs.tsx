@@ -2,8 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './Breadcrumbs.css';
 
-function Breadcrumbs()
-{
+const Breadcrumbs = () => {
 	const location = useLocation();
 	const pathnames = location.pathname.split('/').filter((x) => x);
 

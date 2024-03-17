@@ -1,15 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Breadcrumbs from './shared/Breadcrumbs.jsx';
-import Sidebar from './shared/Sidebar.jsx';
-import ProjectsView from './features/Projects/ProjectsView.jsx';
-import TeamView from './features/Team/TeamView.jsx';
-import UsageView from './features/Usage/UsageView.jsx';
-import DocumentationView from './features/Documentation/DocumentationView.jsx';
-import NotFoundView from './features/Error/NotFoundView.jsx';
-import ProjectView from './features/Projects/ProjectView.jsx';
-import HomeView from './features/Home/HomeView.jsx';
-import RecordingView from './features/Projects/RecordingView.jsx';
+import Breadcrumbs from './shared/Breadcrumbs';
+import Sidebar from './shared/Sidebar';
+import ProjectsView from './features/Projects/ProjectsView';
+import TeamView from './features/Team/TeamView';
+import UsageView from './features/Usage/UsageView';
+import DocumentationView from './features/Documentation/DocumentationView';
+import NotFoundView from './features/Error/NotFoundView';
+import ProjectView from './features/Projects/ProjectView';
+import HomeView from './features/Home/HomeView';
+import RecordingView from './features/Projects/RecordingView';
 
 function App()
 {
@@ -21,7 +21,7 @@ function App()
 			<div id='main'>
 				<Breadcrumbs />
 				<Routes>
-					<Route exact path="/" element={<HomeView />} />
+					<Route path="/" element={<HomeView />} />
 					<Route path="/projects" element={<ProjectsView />} />
 					<Route path="/projects/project" element={<ProjectView />} />
 					<Route path="/projects/project/recording" element={<RecordingView />} />

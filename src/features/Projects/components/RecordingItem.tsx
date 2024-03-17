@@ -1,6 +1,5 @@
-import React from 'react';
 import styles from './RecordingItem.module.css';
-import Chip from '../../../shared/Chip.jsx';
+import Chip from '../../../shared/Chip.js';
 
 const RecordingItem = () =>
 {
