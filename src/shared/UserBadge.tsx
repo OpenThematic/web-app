@@ -1,11 +1,6 @@
 import styles from './UserBadge.module.css';
-import { IUser } from './models/user'
 
-type Props = {
-	user: IUser;
-};
-
-const UserBadge = ({ user }: Props) => {
+const UserBadge = () => {
 	return (
 		<div className={styles.badge}>
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './ProjectView.module.css';
 import { Link } from 'react-router-dom';
 import RecordingItem from './components/RecordingItem.jsx';
