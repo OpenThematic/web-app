@@ -10,7 +10,7 @@ const CollaboratorList = ({ users }: Props) => {
 	return (
 		<div className={styles.list}>
 			{users.map(user => (
-				<UserBadge key={user.id} user={user} />
+				<UserBadge key={user.id} />
 			))}
 		</div>
 	);
