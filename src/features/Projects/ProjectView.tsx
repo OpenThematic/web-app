@@ -1,6 +1,6 @@
 import styles from './ProjectView.module.css';
 import { Link } from 'react-router-dom';
-import RecordingItem from './components/RecordingItem.jsx';
+import RecordingItem from './components/RecordingItem';
 import CollaboratorList from '../../shared/CollaboratorList.js';
 import { User } from '../../shared/models/user';
 

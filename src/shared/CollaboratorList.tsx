@@ -1,5 +1,5 @@
 import styles from './CollaboratorList.module.css';
-import UserBadge from './UserBadge.jsx';
+import UserBadge from './UserBadge';
 import { IUser } from './models/user';
 
 type Props = {

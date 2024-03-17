@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import ProjectItem from './components/ProjectItem.jsx';
+import ProjectItem from './components/ProjectItem';
 import styles from './ProjectsView.module.css';
 
 const ProjectsView = () =>
