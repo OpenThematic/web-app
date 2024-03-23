@@ -2,6 +2,7 @@ import React, { ChangeEvent } from 'react';
 import styles from './RecordingView.module.css';
 import FileInput from '../../shared/FileInput';
 import Paragraph from './TranscriptEditor/Paragraph';
+import AudioPlayer from '../../shared/AudioPlayer';
 
 const RecordingView = () => {
 	const [transcript, setTranscript] = React.useState<Transcript[] | null>(null);
@@ -29,18 +30,23 @@ const RecordingView = () => {
 		}
 	}
 
-	return (
+	return <>
 		<div id={styles.view}>
-			{!transcript && <FileInput text={"Add JSON"} onChange={handleFileSelected} />}
-			{transcript && (
-				<div>
-					{transcript.map((data: Transcript, index: React.Key) => (
-						<Paragraph data={data} key={index} />
-					))}
-				</div>
-			)}
+			<div id={styles.content}>
+				{!transcript && <FileInput text={"Add JSON"} onChange={handleFileSelected} />}
+				{transcript && (
+					<div>
+						{transcript.map((data: Transcript, index: React.Key) => (
+							<Paragraph data={data} key={index} />
+						))}
+					</div>
+				)}
+			</div>
+			<div id={styles.audioPlayer}>
+				<AudioPlayer />
+			</div>
 		</div>
-	);
+	</>;
 }
 
 export default RecordingView;

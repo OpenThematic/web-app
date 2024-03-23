@@ -1,0 +1,17 @@
+.player {
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+	padding: 1rem;
+}
+
+.player .timeline {
+	height: 2rem;
+	background-color: var(--color-background-dark-2);
+}
+
+.player .controls {
+	display: flex;
+	gap: .5rem;
+	justify-content: center;
+}

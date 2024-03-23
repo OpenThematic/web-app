@@ -1,4 +1,29 @@
 #view {
-	padding: 10rem;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
 	overflow-y: auto;
+}
+
+#content {
+	flex: 1;
+	padding: 10rem;
+}
+
+#audioPlayer {
+	position: sticky;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: var(--color-background);
+}
+
+#audioPlayer::before {
+	content: "";
+	position: absolute;
+	top: -10rem;
+	height: 10rem;
+	width: 100%;
+	background: linear-gradient(180deg, transparent 0%, var(--color-background) 100%);
+	pointer-events: none;
 }
