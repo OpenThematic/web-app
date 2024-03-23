@@ -8,6 +8,6 @@ const DocumentationView = () =>
 			<p>This is the documentation page.</p>
 		</div>
 	);
-}
+};
 
 export default DocumentationView;

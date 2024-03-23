@@ -1,4 +1,4 @@
-import './TeamView.css'
+import './TeamView.css';
 
 const TeamView = () =>
 {
@@ -8,6 +8,6 @@ const TeamView = () =>
 			<p>This is the team page.</p>
 		</div>
 	);
-}
+};
 
 export default TeamView;

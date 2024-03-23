@@ -13,6 +13,6 @@ const ProjectsView = () =>
 			</div>
 		</div>
 	);
-}
+};
 
 export default ProjectsView;

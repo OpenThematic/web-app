@@ -1,7 +1,8 @@
 import NavigationItem from './NavigationItem.js';
 import './Sidebar.css';
 
-const Sidebar = () => {
+const Sidebar = () =>
+{
 	return <div id='sidebar'>
 		<div className="logo"><div></div>OpenThematic</div>
 		<ul>
@@ -11,6 +12,6 @@ const Sidebar = () => {
 			<NavigationItem text={"Documentation"} url={"/documentation"} />
 		</ul>
 	</div>;
-}
+};
 
 export default Sidebar;

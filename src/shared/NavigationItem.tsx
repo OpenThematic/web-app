@@ -4,14 +4,15 @@ import './NavigationItem.css';
 type Props = {
 	text: string;
 	url: string;
-}
+};
 
-const NavigationItem = ({ text, url }: Props) => {
+const NavigationItem = ({ text, url }: Props) =>
+{
 	return <Link to={url}>
 		<li className='navigation-item'>
 			{text}
 		</li>
-	</Link>
-}
+	</Link>;
+};
 
 export default NavigationItem;

@@ -1,6 +1,7 @@
 import './HomeView.css';
 
-function HomeView() {
+function HomeView()
+{
 	return (
 		<div id="view">
 			<h1>Home</h1>

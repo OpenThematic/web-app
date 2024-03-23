@@ -6,7 +6,8 @@ type Props = {
 	users: IUser[];
 };
 
-const CollaboratorList = ({ users }: Props) => {
+const CollaboratorList = ({ users }: Props) =>
+{
 	return (
 		<div className={styles.list}>
 			{users.map(user => (
@@ -14,6 +15,6 @@ const CollaboratorList = ({ users }: Props) => {
 			))}
 		</div>
 	);
-}
+};
 
 export default CollaboratorList;

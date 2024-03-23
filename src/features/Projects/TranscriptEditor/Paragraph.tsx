@@ -5,7 +5,8 @@ type Props = {
 	data: Transcript;
 };
 
-const Paragraph = ({ data }: Props) => {
+const Paragraph = ({ data }: Props) =>
+{
 	return (
 		<div className={styles.paragraph}>
 			<p className={styles.time}>{formatSeconds(data.start)}</p>

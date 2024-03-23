@@ -4,31 +4,40 @@ import FileInput from '../../shared/FileInput';
 import Paragraph from './TranscriptEditor/Paragraph';
 import AudioPlayer from '../../shared/AudioPlayer';
 
-const RecordingView = () => {
+const RecordingView = () =>
+{
 	const [transcript, setTranscript] = React.useState<Transcript[] | null>(null);
 
-	const handleFileSelected = (event: ChangeEvent<HTMLInputElement>) => {
-		if (event.target.files === null || event.target.files.length === 0) {
+	const handleFileSelected = (event: ChangeEvent<HTMLInputElement>) =>
+	{
+		if (event.target.files === null || event.target.files.length === 0)
+		{
 			return;
 		}
 
 		let reader = new FileReader();
 		reader.readAsText(event.target.files[0]);
-		reader.onload = event => {
-			if (event.target === null || typeof event.target.result !== "string") {
+		reader.onload = event =>
+		{
+			if (event.target === null || typeof event.target.result !== "string")
+			{
 				return;
 			}
 
-			try {
+			try
+			{
 				setTranscript(JSON.parse(event.target.result as string));
-			} catch (error: any) {
+			}
+			catch (error: any)
+			{
 				console.error("Error parsing JSON file: " + error.message);
 			}
-		}
-		reader.onerror = () => {
+		};
+		reader.onerror = () =>
+		{
 			console.error("Error reading file: " + reader.error);
-		}
-	}
+		};
+	};
 
 	return <>
 		<div id={styles.view}>
@@ -47,6 +56,6 @@ const RecordingView = () => {
 			</div>
 		</div>
 	</>;
-}
+};
 
 export default RecordingView;

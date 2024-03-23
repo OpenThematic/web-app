@@ -8,6 +8,6 @@ const UsageView = () =>
 			<p>This is the usage page.</p>
 		</div>
 	);
-}
+};
 
 export default UsageView;

@@ -4,7 +4,8 @@ import RecordingItem from './components/RecordingItem';
 import CollaboratorList from '../../shared/CollaboratorList.js';
 import { User } from '../../shared/models/user';
 
-const ProjectView = () => {
+const ProjectView = () =>
+{
 	let mockUsers = [
 		new User(1, "John", "Doe", "john.doe@example.com", "https://randomuser.me/api/portraits"),
 		new User(2, "Jane", "Smith", "jane.smith@example.com", "https://randomuser.me/api/portraits"),
