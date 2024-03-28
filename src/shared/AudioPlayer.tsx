@@ -1,6 +1,7 @@
 import { ChangeEvent, useRef, useState } from 'react';
 import FileInput from './FileInput';
 import styles from './AudioPlayer.module.css';
+import { IconPlayerPause, IconPlayerPlay, IconRewindBackward5, IconRewindForward5 } from '@tabler/icons-react';
 
 interface Props
 {
@@ -61,9 +62,9 @@ const AudioPlayer = ({ id, className }: Props) =>
 			{audioFile && <>
 				<div className={styles.timeline}></div>
 				<div className={styles.controls}>
-					<button className='rewind' onClick={() => { skipTime(-5); }}>Rewind 5</button>
-					<button className='play' onClick={togglePlay}>{isPlaying ? "Pause" : "Play"}</button>
-					<button className='skip' onClick={() => { skipTime(5); }}>Skip 5</button>
+					<button onClick={() => { skipTime(-5); }}><IconRewindBackward5 /></button>
+					<button onClick={togglePlay}>{isPlaying ? <IconPlayerPause /> : <IconPlayerPlay />}</button>
+					<button onClick={() => { skipTime(5); }}><IconRewindForward5 /></button>
 				</div>
 				<audio ref={audioElement}>
 					<source src={audioFile?.toString()} type="audio/mp3" />

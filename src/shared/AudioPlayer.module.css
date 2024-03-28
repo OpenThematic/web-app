@@ -15,3 +15,9 @@
 	gap: .5rem;
 	justify-content: center;
 }
+
+.player .controls button {
+	color: var(--color-text);
+	background-color: transparent;
+	border: none;
+}
