@@ -10,6 +10,11 @@
 	background-color: var(--color-background-dark-2);
 }
 
+.player .timeline .progress {
+	height: 100%;
+	background-color: var(--color-primary);
+}
+
 .player .controls {
 	display: flex;
 	gap: .5rem;

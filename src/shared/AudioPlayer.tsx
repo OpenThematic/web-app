@@ -1,4 +1,4 @@
-import { ChangeEvent, useRef, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import FileInput from './FileInput';
 import styles from './AudioPlayer.module.css';
 import { IconPlayerPause, IconPlayerPlay, IconRewindBackward5, IconRewindForward5 } from '@tabler/icons-react';
@@ -13,7 +13,18 @@ const AudioPlayer = ({ id, className }: Props) =>
 {
 	const [audioFile, setAudioFile] = useState<string | ArrayBuffer | null>(null);
 	const [isPlaying, setIsPlaying] = useState<boolean>(false);
+	const [progress, setProgress] = useState<number>(0);
 	const audioElement = useRef<HTMLAudioElement>(null);
+	const progressIndicator = useRef<HTMLDivElement>(null);
+	const interval = useRef<NodeJS.Timeout | null>(null);
+
+	useEffect(() =>
+	{
+		return () =>
+		{
+			pause();
+		};
+	}, []);
 
 	const handleFileSelected = (event: ChangeEvent<HTMLInputElement>) =>
 	{
@@ -36,17 +47,29 @@ const AudioPlayer = ({ id, className }: Props) =>
 		};
 	};
 
+	const play = () =>
+	{
+		interval.current = setInterval(() =>
+		{
+			setProgress(audioElement.current!.currentTime / audioElement.current!.duration * 100);
+		}, 1000);
+		audioElement.current?.play();
+		setIsPlaying(true);
+	};
+
+	const pause = () =>
+	{
+		if (interval.current)
+		{
+			clearInterval(interval.current);
+		}
+		audioElement.current?.pause();
+		setIsPlaying(false);
+	};
+
 	const togglePlay = () =>
 	{
-		if (audioElement.current?.paused)
-		{
-			audioElement.current?.play();
-			setIsPlaying(true);
-		} else
-		{
-			audioElement.current?.pause();
-			setIsPlaying(false);
-		}
+		audioElement.current?.paused ? play() : pause();
 	};
 
 	const skipTime = (time: number) =>
@@ -60,7 +83,9 @@ const AudioPlayer = ({ id, className }: Props) =>
 		<div id={id} className={className + " " + styles.player}>
 			{!audioFile && <FileInput text={"Add Audio"} onChange={handleFileSelected} />}
 			{audioFile && <>
-				<div className={styles.timeline}></div>
+				<div className={styles.timeline}>
+					<div ref={progressIndicator} className={styles.progress} style={{ width: `${progress}%` }}></div>
+				</div>
 				<div className={styles.controls}>
 					<button onClick={() => { skipTime(-5); }}><IconRewindBackward5 /></button>
 					<button onClick={togglePlay}>{isPlaying ? <IconPlayerPause /> : <IconPlayerPlay />}</button>
