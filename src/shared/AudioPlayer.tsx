@@ -77,13 +77,35 @@ const AudioPlayer = ({ id, className }: Props) =>
 		if (!audioElement.current) return;
 
 		audioElement.current.currentTime += time;
+		setProgress(audioElement.current.currentTime / audioElement.current.duration * 100);
+	};
+
+	const seek = (time: number) =>
+	{
+		if (!audioElement.current) return;
+
+		audioElement.current.currentTime = time;
+		setProgress(audioElement.current.currentTime / audioElement.current.duration * 100);
+	};
+
+	const onTimelineClick = (event: React.MouseEvent<HTMLDivElement>) =>
+	{
+		if (!audioElement.current) return;
+
+		const rect = event.currentTarget.getBoundingClientRect();
+		const x = event.clientX - rect.left;
+		const width = rect.width;
+		const percentage = x / width;
+		const time = percentage * audioElement.current.duration;
+
+		seek(time);
 	};
 
 	return (
 		<div id={id} className={className + " " + styles.player}>
 			{!audioFile && <FileInput text={"Add Audio"} onChange={handleFileSelected} />}
 			{audioFile && <>
-				<div className={styles.timeline}>
+				<div className={styles.timeline} onClick={onTimelineClick}>
 					<div ref={progressIndicator} className={styles.progress} style={{ width: `${progress}%` }}></div>
 				</div>
 				<div className={styles.controls}>
