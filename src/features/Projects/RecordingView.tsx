@@ -8,7 +8,7 @@ const RecordingView = () =>
 {
 	const [transcript, setTranscript] = React.useState<Transcript[] | null>(null);
 
-	const handleFileSelected = (event: ChangeEvent<HTMLInputElement>) =>
+	const loadJson = (event: ChangeEvent<HTMLInputElement>) =>
 	{
 		if (event.target.files === null || event.target.files.length === 0)
 		{
@@ -42,7 +42,7 @@ const RecordingView = () =>
 	return <>
 		<div id={styles.view}>
 			<div id={styles.content}>
-				{!transcript && <FileInput text={"Add JSON"} onChange={handleFileSelected} />}
+				{!transcript && <FileInput text={"Add JSON"} onChange={loadJson} />}
 				{transcript && (
 					<div>
 						{transcript.map((data: Transcript, index: React.Key) => (
