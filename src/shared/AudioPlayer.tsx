@@ -5,11 +5,14 @@ import { IconPlayerPause, IconPlayerPlay, IconRewindBackward5, IconRewindForward
 
 interface Props
 {
+	time?: number;
 	id?: string;
 	className?: string;
 }
 
-const AudioPlayer = ({ id, className }: Props) =>
+// TODO: Move timeline/progress to separate component
+
+const AudioPlayer = ({ time, id, className }: Props) =>
 {
 	const [audioFile, setAudioFile] = useState<string | ArrayBuffer | null>(null);
 	const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -26,6 +29,29 @@ const AudioPlayer = ({ id, className }: Props) =>
 		};
 	}, []);
 
+	useEffect(() =>
+	{
+		if (time)
+		{
+			seek(time);
+		}
+	}, [time]);
+
+	useEffect(() =>
+	{
+		const onMetadataLoaded = () =>
+		{
+			seek(time || 0);
+		};
+
+		audioElement.current?.addEventListener('loadedmetadata', onMetadataLoaded);
+
+		return () =>
+		{
+			audioElement.current?.removeEventListener('loadedmetadata', onMetadataLoaded);
+		};
+	}, [audioFile]);
+
 	const handleFileSelected = (event: ChangeEvent<HTMLInputElement>) =>
 	{
 		if (event.target.files === null || event.target.files.length === 0)
@@ -37,7 +63,7 @@ const AudioPlayer = ({ id, className }: Props) =>
 		reader.readAsDataURL(event.target.files[0]);
 		reader.onload = event =>
 		{
-			if (event.target === null) return;
+			if (!event.target) return;
 
 			setAudioFile(event.target.result);
 		};
@@ -45,6 +71,19 @@ const AudioPlayer = ({ id, className }: Props) =>
 		{
 			console.error("Error reading file: " + reader.error);
 		};
+	};
+
+	const handleTimelineClick = (event: React.MouseEvent<HTMLDivElement>) =>
+	{
+		if (!audioElement.current) return;
+
+		const rect = event.currentTarget.getBoundingClientRect();
+		const x = event.clientX - rect.left;
+		const width = rect.width;
+		const percentage = x / width;
+		const time = percentage * audioElement.current.duration;
+
+		seek(time);
 	};
 
 	const play = () =>
@@ -85,20 +124,7 @@ const AudioPlayer = ({ id, className }: Props) =>
 		if (!audioElement.current) return;
 
 		audioElement.current.currentTime = time;
-		setProgress(audioElement.current.currentTime / audioElement.current.duration * 100);
-	};
-
-	const handleTimelineClick = (event: React.MouseEvent<HTMLDivElement>) =>
-	{
-		if (!audioElement.current) return;
-
-		const rect = event.currentTarget.getBoundingClientRect();
-		const x = event.clientX - rect.left;
-		const width = rect.width;
-		const percentage = x / width;
-		const time = percentage * audioElement.current.duration;
-
-		seek(time);
+		setProgress(time / audioElement.current.duration * 100);
 	};
 
 	return (
