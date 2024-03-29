@@ -88,7 +88,7 @@ const AudioPlayer = ({ id, className }: Props) =>
 		setProgress(audioElement.current.currentTime / audioElement.current.duration * 100);
 	};
 
-	const onTimelineClick = (event: React.MouseEvent<HTMLDivElement>) =>
+	const handleTimelineClick = (event: React.MouseEvent<HTMLDivElement>) =>
 	{
 		if (!audioElement.current) return;
 
@@ -105,7 +105,7 @@ const AudioPlayer = ({ id, className }: Props) =>
 		<div id={id} className={className + " " + styles.player}>
 			{!audioFile && <FileInput text={"Add Audio"} onChange={handleFileSelected} />}
 			{audioFile && <>
-				<div className={styles.timeline} onClick={onTimelineClick}>
+				<div className={styles.timeline} onClick={handleTimelineClick}>
 					<div ref={progressIndicator} className={styles.progress} style={{ width: `${progress}%` }}></div>
 				</div>
 				<div className={styles.controls}>
