@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import styles from './RecordingView.module.css';
 import FileInput from '../../shared/FileInput';
 import Paragraph from './TranscriptEditor/Paragraph';
@@ -6,7 +6,8 @@ import AudioPlayer from '../../shared/AudioPlayer';
 
 const RecordingView = () =>
 {
-	const [transcript, setTranscript] = React.useState<Transcript[] | null>(null);
+	const [transcript, setTranscript] = useState<Transcript[] | null>(null);
+	const [time, setTime] = useState<number | null>(null);
 
 	const loadJson = (event: ChangeEvent<HTMLInputElement>) =>
 	{
@@ -39,6 +40,11 @@ const RecordingView = () =>
 		};
 	};
 
+	const handleTimeClick = (time: number) =>
+	{
+		setTime(time);
+	};
+
 	return <>
 		<div id={styles.view}>
 			<div id={styles.content}>
@@ -46,13 +52,13 @@ const RecordingView = () =>
 				{transcript && (
 					<div>
 						{transcript.map((data: Transcript, index: React.Key) => (
-							<Paragraph data={data} key={index} />
+							<Paragraph data={data} onTimeClick={handleTimeClick} key={index} />
 						))}
 					</div>
 				)}
 			</div>
 			<div id={styles.audioPlayer}>
-				<AudioPlayer />
+				<AudioPlayer time={time ?? 0} />
 			</div>
 		</div>
 	</>;
