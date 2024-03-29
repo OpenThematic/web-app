@@ -4,7 +4,7 @@ import './Sidebar.css';
 const Sidebar = () =>
 {
 	return <div id='sidebar'>
-		<div className="logo"><div></div>OpenThematic</div>
+		<div className="logo"><img src={'/favicon.ico'}></img>OpenThematic</div>
 		<ul>
 			<NavigationItem text={"Projects"} url={"/projects"} />
 			<NavigationItem text={"Usage"} url={"/usage"} />

@@ -18,11 +18,9 @@
 	font-weight: bold;
 }
 
-.logo > div {
+.logo > img {
 	height: 3rem;
 	width: 3rem;
-	background-color: var(--color-text);
-	border-radius: .5rem;
 }
 
 #sidebar ul {
