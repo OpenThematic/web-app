@@ -11,12 +11,12 @@ Try our (soon to be) MPV here: https://openthematic.github.io/web-app/
 git clone https://github.com/OpenThematic/web-app.git
 ```
 
-3. Install the dependencies:
+2. Install the dependencies:
 ```
 npm install
 ```
 
-2. Run it locally:
+3. Run it locally:
 ```
 npm run dev
 ```
