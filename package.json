@@ -27,5 +27,17 @@
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"eslint-plugin-react-refresh": "^0.4.5",
 		"vite": "^5.1.0"
-	}
+	},
+	"description": "Web interface for processing and editing transcriptions.",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/OpenThematic/web-app.git"
+	},
+	"author": "Kentaro Hayashida <kentaro@hayashida.se> (https://github.com/Avokadomos)",
+	"license": "SEE LICENSE IN LICENSE FILE",
+	"bugs": {
+		"url": "https://github.com/OpenThematic/web-app/issues"
+	},
+	"homepage": "https://github.com/OpenThematic/web-app#readme"
 }
