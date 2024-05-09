@@ -18,5 +18,5 @@ npm install
 
 3. Run it locally:
 ```
-npm run dev
+npm start
 ```
