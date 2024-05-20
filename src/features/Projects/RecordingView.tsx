@@ -27,7 +27,8 @@ const RecordingView = () =>
 
 			try
 			{
-				setTranscript(JSON.parse(event.target.result as string));
+				const json = JSON.parse(event.target.result as string);
+				setTranscript(json['segments']);
 			}
 			catch (error: any)
 			{
