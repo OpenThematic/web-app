@@ -14,3 +14,7 @@
 	width: 12rem;
 	color: var(--color-text-light);
 }
+
+.paragraph .lowConfidence {
+	color: red;
+}

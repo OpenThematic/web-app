@@ -11,7 +11,7 @@ const Paragraph = ({ data, onTimeClick }: Props) =>
 	const handleTimeClick = () =>
 	{
 		if (!onTimeClick) return;
-		
+
 		onTimeClick(data.start);
 	};
 
@@ -19,7 +19,11 @@ const Paragraph = ({ data, onTimeClick }: Props) =>
 		<div className={styles.paragraph}>
 			<p className={styles.time} onClick={handleTimeClick}>{formatSeconds(data.start)}</p>
 			<p className={styles.speaker}>{data.speaker}</p>
-			<p>{data.text}</p>
+			<p>
+				{data.words.map((word: Word, index: React.Key) => (
+					<span key={index} className={(word.probability < 0.3 ? styles.lowConfidence : "")}>{word.word} </span>
+				))}
+			</p>
 		</div>
 	);
 };
