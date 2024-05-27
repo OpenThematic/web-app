@@ -1,5 +1,6 @@
 interface Transcript
 {
+	id: number;
 	start: number;
 	end: number;
 	speaker: string;
@@ -9,6 +10,7 @@ interface Transcript
 
 interface Word
 {
+	id: number;
 	start: number;
 	end: number;
 	probability: number;

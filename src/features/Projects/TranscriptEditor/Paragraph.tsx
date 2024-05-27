@@ -1,7 +1,7 @@
 import styles from './Paragraph.module.css';
 import { formatSeconds } from '../../../shared/utils/time';
 import Word from './Word';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, Fragment } from 'react';
 
 type Props = {
 	data: Transcript;
@@ -29,10 +29,10 @@ const Paragraph = ({ data, onTimeClick }: Props) =>
 			<p className={styles.speaker}>{data.speaker}</p>
 			<p className={styles.text} onInput={handleChange} contentEditable suppressContentEditableWarning>
 				{data.words.map((word: Word) =>
-					<>
-						<Word data={word} />
+					<Fragment key={word.id}>
+						<Word data={word} key={word.id} />
 						{' '}
-					</>
+					</Fragment>
 				)}
 			</p>
 		</div>

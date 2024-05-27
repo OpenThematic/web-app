@@ -52,8 +52,8 @@ const RecordingView = () =>
 				{!transcript && <FileInput text={"Add JSON"} onChange={loadJson} />}
 				{transcript && (
 					<div>
-						{transcript.map((data: Transcript, index: React.Key) => (
-							<Paragraph data={data} onTimeClick={handleTimeClick} key={index} />
+						{transcript.map((data: Transcript) => (
+							<Paragraph data={data} onTimeClick={handleTimeClick} key={data.id} />
 						))}
 					</div>
 				)}
