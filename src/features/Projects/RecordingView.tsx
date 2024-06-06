@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, RefObject, useEffect, useRef, useState } from 'react';
 import styles from './RecordingView.module.css';
 import FileInput from '../../shared/FileInput';
 import Paragraph from './TranscriptEditor/Paragraph';
@@ -7,6 +7,11 @@ import AudioPlayer from '../../shared/AudioPlayer';
 const RecordingView = () =>
 {
 	const [transcript, setTranscript] = useState<Transcript[] | null>(null);
+	const [, setWords] = useState<Word[]>([]);
+	const [, setUncertainWords] = useState<Word[]>([]);
+	const [, setSelectedWord] = useState<Word | null>(null);
+	const paragraphRefs = useRef(new Map<string, RefObject<HTMLDivElement>>());
+	const wordRefs = useRef(new Map<string, RefObject<HTMLSpanElement>>());
 	const [time, setTime] = useState<number | null>(null);
 
 	useEffect(() =>
@@ -37,8 +42,13 @@ const RecordingView = () =>
 
 			try
 			{
-				const json = JSON.parse(event.target.result as string);
-				setTranscript(json['segments']);
+				const paragraphs = JSON.parse(event.target.result as string)['segments'];
+				const words = paragraphs.flatMap((p: Transcript) => p.words);
+
+				setTranscript(paragraphs);
+				setWords(words);
+				setUncertainWords(words.filter((w: Word) => w.probability <= probabilityThreshold));
+				setSelectedWord(words[0]);
 			}
 			catch (error: any)
 			{
@@ -71,7 +81,7 @@ const RecordingView = () =>
 				{transcript && (
 					<div>
 						{transcript.map((data: Transcript) => (
-							<Paragraph data={data} onTimeClick={handleTimeClick} key={data.id} />
+							<Paragraph data={data} paragraphRefs={paragraphRefs} wordRefs={wordRefs} onTimeClick={handleTimeClick} key={data.id} />
 						))}
 					</div>
 				)}
