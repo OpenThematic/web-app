@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import styles from './RecordingView.module.css';
 import FileInput from '../../shared/FileInput';
 import Paragraph from './TranscriptEditor/Paragraph';
@@ -8,6 +8,16 @@ const RecordingView = () =>
 {
 	const [transcript, setTranscript] = useState<Transcript[] | null>(null);
 	const [time, setTime] = useState<number | null>(null);
+
+	useEffect(() =>
+	{
+		document.addEventListener('keydown', handleKeyPress);
+
+		return () =>
+		{
+			document.removeEventListener('keydown', handleKeyPress);
+		};
+	}, []);
 
 	const loadJson = (event: ChangeEvent<HTMLInputElement>) =>
 	{
@@ -44,6 +54,14 @@ const RecordingView = () =>
 	const handleTimeClick = (time: number) =>
 	{
 		setTime(time);
+	};
+
+	const handleKeyPress = (event: KeyboardEvent) =>
+	{
+		if (event.key === 'Tab')
+		{
+			event.preventDefault();
+		}
 	};
 
 	return <>
