@@ -1,4 +1,4 @@
-import { ChangeEvent, RefObject, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, createRef, useEffect, useState } from 'react';
 import styles from './RecordingView.module.css';
 import FileInput from '../../shared/FileInput';
 import Paragraph from './TranscriptEditor/Paragraph';
@@ -9,11 +9,9 @@ const probabilityThreshold = .3;
 const RecordingView = () =>
 {
 	const [transcript, setTranscript] = useState<Transcript[] | null>(null);
-	const [, setWords] = useState<Word[]>([]);
-	const [, setUncertainWords] = useState<Word[]>([]);
-	const [, setSelectedWord] = useState<Word | null>(null);
-	const paragraphRefs = useRef(new Map<string, RefObject<HTMLDivElement>>());
-	const wordRefs = useRef(new Map<string, RefObject<HTMLSpanElement>>());
+	const [words, setWords] = useState<Word[]>([]);
+	const [uncertainWords, setUncertainWords] = useState<Word[]>([]);
+	const [selectedWord, setSelectedWord] = useState<Word | null>(null);
 	const [time, setTime] = useState<number | null>(null);
 
 	useEffect(() =>
@@ -24,7 +22,7 @@ const RecordingView = () =>
 		{
 			document.removeEventListener('keydown', handleKeyPress);
 		};
-	}, []);
+	}, [transcript, words, uncertainWords, selectedWord]);
 
 	const loadJson = (event: ChangeEvent<HTMLInputElement>) =>
 	{
@@ -45,12 +43,22 @@ const RecordingView = () =>
 			try
 			{
 				const paragraphs = JSON.parse(event.target.result as string)['segments'];
-				const words = paragraphs.flatMap((p: Transcript) => p.words);
 
-				setTranscript(paragraphs);
-				setWords(words);
-				setUncertainWords(words.filter((w: Word) => w.probability <= probabilityThreshold));
-				setSelectedWord(words[0]);
+				const paragraphsWithRefs = paragraphs.map((p: Transcript) => ({
+					...p,
+					ref: createRef<HTMLDivElement>(),
+					words: p.words.map((w: Word) => ({
+						...w,
+						ref: createRef<HTMLSpanElement>()
+					}))
+				}));
+
+				const allWords = paragraphsWithRefs.flatMap((p: Transcript) => p.words);
+
+				setTranscript(paragraphsWithRefs);
+				setWords(allWords);
+				setUncertainWords(allWords.filter((w: Word) => w.probability <= probabilityThreshold));
+				setSelectedWord(allWords[0]);
 			}
 			catch (error: any)
 			{
@@ -73,7 +81,13 @@ const RecordingView = () =>
 		if (event.key === 'Tab')
 		{
 			event.preventDefault();
+			selectNextUncertainWord();
 		}
+	};
+
+	const selectNextUncertainWord = () =>
+	{
+		console.log(uncertainWords);
 	};
 
 	return <>
@@ -83,7 +97,7 @@ const RecordingView = () =>
 				{transcript && (
 					<div>
 						{transcript.map((data: Transcript) => (
-							<Paragraph data={data} paragraphRefs={paragraphRefs} wordRefs={wordRefs} onTimeClick={handleTimeClick} key={data.id} />
+							<Paragraph data={data} onTimeClick={handleTimeClick} key={data.id} />
 						))}
 					</div>
 				)}

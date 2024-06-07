@@ -6,6 +6,7 @@ interface Transcript
 	speaker: string;
 	text: string;
 	words: Word[];
+	ref?: React.RefObject<HTMLDivElement>;
 }
 
 interface Word
@@ -15,4 +16,5 @@ interface Word
 	end: number;
 	probability: number;
 	word: string;
+	ref?: React.RefObject<HTMLSpanElement>;
 }
