@@ -4,6 +4,8 @@ import FileInput from '../../shared/FileInput';
 import Paragraph from './TranscriptEditor/Paragraph';
 import AudioPlayer from '../../shared/AudioPlayer';
 
+const probabilityThreshold = .3;
+
 const RecordingView = () =>
 {
 	const [transcript, setTranscript] = useState<Transcript[] | null>(null);
