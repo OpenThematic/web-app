@@ -10,7 +10,7 @@ const Word = ({ data }: Props) =>
 
 	return (
 		data.probability < lowConfidenceThreshold ? (
-			<span ref={data.ref} className={styles.lowConfidence} contentEditable >{data.word.trim()}</span>
+			<span ref={data.ref} className={styles.lowConfidence}>{data.word.trim()}</span>
 		) : (
 			<span ref={data.ref} className={styles.word}>{data.word.trim()}</span>
 		)
