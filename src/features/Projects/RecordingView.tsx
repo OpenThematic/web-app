@@ -115,6 +115,7 @@ const RecordingView = () =>
 
 		spanElement.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
 		setSelectedWord(word);
+		// TODO: Set audio player time to word start time
 	};
 
 	return <>

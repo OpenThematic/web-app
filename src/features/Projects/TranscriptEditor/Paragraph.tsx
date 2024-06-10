@@ -20,7 +20,9 @@ const Paragraph = ({ data, onTimeClick }: Props) =>
 	const handleChange = (event: ChangeEvent<HTMLParagraphElement>) =>
 	{
 		console.log(event.target.innerText);
-		// TODO: When editing text, check if word is entirely deleted or replaced
+		// TODO: Remove word if text is deleted or replaced
+		// TODO: Edit word if text is added
+		// TODO: Add new word if space is added
 	};
 
 	return (
