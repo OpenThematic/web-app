@@ -58,7 +58,6 @@ const RecordingView = () =>
 				setTranscript(paragraphsWithRefs);
 				setWords(allWords);
 				setUncertainWords(allWords.filter((w: Word) => w.probability <= probabilityThreshold));
-				setSelectedWord(allWords[0]);
 			}
 			catch (error: any)
 			{
@@ -87,7 +86,28 @@ const RecordingView = () =>
 
 	const selectNextUncertainWord = () =>
 	{
-		console.log(uncertainWords);
+		if (selectedWord == null)
+		{
+			selectWord(uncertainWords[0]);
+			return;
+		}
+
+		const index = uncertainWords.indexOf(selectedWord);
+		selectWord(uncertainWords[index + 1]);
+	};
+
+	const selectWord = (word: Word) =>
+	{
+		const selection = window.getSelection();
+		const range = document.createRange();
+		const spanElement = (word.ref?.current as HTMLSpanElement);
+		
+		selection?.removeAllRanges();
+		range.selectNode(spanElement);
+		selection?.addRange(range);
+		
+		spanElement.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+		setSelectedWord(word);
 	};
 
 	return <>
