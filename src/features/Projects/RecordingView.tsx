@@ -98,14 +98,21 @@ const RecordingView = () =>
 
 	const selectWord = (word: Word) =>
 	{
-		const selection = window.getSelection();
+		const selection = document.getSelection();
+
+		if (selection == null)
+		{
+			console.error("Could not get selection.");
+			return;
+		}
+
 		const range = document.createRange();
 		const spanElement = (word.ref?.current as HTMLSpanElement);
-		
-		selection?.removeAllRanges();
+
+		selection.removeAllRanges();
 		range.selectNode(spanElement);
-		selection?.addRange(range);
-		
+		selection.addRange(range);
+
 		spanElement.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
 		setSelectedWord(word);
 	};
