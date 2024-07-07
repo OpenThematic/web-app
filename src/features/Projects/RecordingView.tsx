@@ -77,6 +77,12 @@ const RecordingView = () =>
 
 	const handleKeyPress = (event: KeyboardEvent) =>
 	{
+		if (event.key == 'Tab' && event.shiftKey)
+		{
+			event.preventDefault();
+			selectPreviousUncertainWord();
+			return;
+		}
 		if (event.key === 'Tab')
 		{
 			event.preventDefault();
@@ -94,6 +100,18 @@ const RecordingView = () =>
 
 		const index = uncertainWords.indexOf(selectedWord);
 		selectWord(uncertainWords[index + 1]);
+	};
+
+	const selectPreviousUncertainWord = () =>
+	{
+		if (selectedWord == null)
+		{
+			selectWord(uncertainWords[uncertainWords.length - 1]);
+			return;
+		}
+
+		const index = uncertainWords.indexOf(selectedWord);
+		selectWord(uncertainWords[index - 1]);
 	};
 
 	const selectWord = (word: Word) =>
