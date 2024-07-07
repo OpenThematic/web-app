@@ -118,9 +118,9 @@ const RecordingView = () =>
 	{
 		const selection = document.getSelection();
 
-		if (selection == null)
+		if (selection == null || word == null)
 		{
-			console.error("Could not get selection.");
+			console.warn("Tried to select a word that does not exist.");
 			return;
 		}
 
