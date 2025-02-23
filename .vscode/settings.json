@@ -1,0 +1,19 @@
+{
+	"[typescript]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	},
+	"typescript.tsdk": "node_modules\\typescript\\lib",
+	"typescript.format.semicolons": "insert",
+	"typescript.implementationsCodeLens.showOnInterfaceMethods": true,
+	"typescript.implementationsCodeLens.enabled": true,
+	"typescript.suggest.completeFunctionCalls": true,
+	"files.trimTrailingWhitespace": true,
+	"files.trimFinalNewlines": true,
+	"editor.formatOnSave": true,
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false
+}
