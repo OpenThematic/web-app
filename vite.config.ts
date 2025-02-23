@@ -7,5 +7,11 @@ const isDeploy = process.env.NODE_ENV === 'production' && process.env.GITHUB_ACT
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [react()],
-	base: isDeploy ? '/web-app/' : '/'
+	base: isDeploy ? '/web-app/' : '/',
+	resolve: {
+		alias: {
+		  // /esm/icons/index.mjs only exports the icons statically, so no separate chunks are created. Temporary workaround.
+		  '@tabler/icons-react': '@tabler/icons-react/dist/esm/icons/index.mjs',
+		},
+	  },
 })
