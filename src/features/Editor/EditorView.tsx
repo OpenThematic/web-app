@@ -1,12 +1,13 @@
 import { ChangeEvent, createRef, useEffect, useState } from 'react';
-import styles from './RecordingView.module.css';
+import styles from './EditorView.module.css';
 import FileInput from '../../shared/FileInput';
-import Paragraph from './TranscriptEditor/Paragraph';
+import Paragraph from './components/Paragraph';
 import AudioPlayer from '../../shared/AudioPlayer';
+import RightSidebar from './components/RightSidebar';
 
 const probabilityThreshold = .3;
 
-const RecordingView = () =>
+const EditorView = () =>
 {
 	const [transcript, setTranscript] = useState<Transcript[] | null>(null);
 	const [words, setWords] = useState<Word[]>([]);
@@ -138,21 +139,24 @@ const RecordingView = () =>
 
 	return <>
 		<div id={styles.view}>
-			<div id={styles.content}>
-				{!transcript && <FileInput text={"Add JSON"} onChange={loadJson} />}
-				{transcript && (
-					<div>
-						{transcript.map((data: Transcript) => (
-							<Paragraph data={data} onTimeClick={handleTimeClick} key={data.id} />
-						))}
-					</div>
-				)}
+			<div id={styles.middlePanel}>
+				<div id={styles.content}>
+					{!transcript && <FileInput text={"Add JSON"} onChange={loadJson} />}
+					{transcript && (
+						<div>
+							{transcript.map((data: Transcript) => (
+								<Paragraph data={data} onTimeClick={handleTimeClick} key={data.id} />
+							))}
+						</div>
+					)}
+				</div>
+				<div id={styles.audioPlayer}>
+					<AudioPlayer time={time ?? 0} />
+				</div>
 			</div>
-			<div id={styles.audioPlayer}>
-				<AudioPlayer time={time ?? 0} />
-			</div>
+			<RightSidebar />
 		</div>
 	</>;
 };
 
-export default RecordingView;
+export default EditorView;

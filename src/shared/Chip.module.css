@@ -1,7 +1,0 @@
-.chip {
-	display: flex;
-	gap: 1rem;
-	padding: .5rem 1rem;
-	background-color: var(--color-background-dark-2);
-	border-radius: var(--border-radius);
-}

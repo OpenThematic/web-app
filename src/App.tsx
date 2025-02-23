@@ -1,15 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Breadcrumbs from './shared/Breadcrumbs';
-import Sidebar from './shared/Sidebar';
-import ProjectsView from './features/Projects/ProjectsView';
-import TeamView from './features/Team/TeamView';
-import UsageView from './features/Usage/UsageView';
-import DocumentationView from './features/Documentation/DocumentationView';
+import Sidebar from './shared/LeftSidebar';
 import NotFoundView from './features/Error/NotFoundView';
-import ProjectView from './features/Projects/ProjectView';
-import HomeView from './features/Home/HomeView';
-import RecordingView from './features/Projects/RecordingView';
+import EditorView from './features/Editor/EditorView';
 
 function App()
 {
@@ -19,15 +12,9 @@ function App()
 		<BrowserRouter basename={baseUrl ?? '/'}>
 			<Sidebar />
 			<div id='main'>
-				<Breadcrumbs />
 				<Routes>
-					<Route path="/" element={<HomeView />} />
-					<Route path="/projects" element={<ProjectsView />} />
-					<Route path="/projects/project" element={<ProjectView />} />
-					<Route path="/projects/project/recording" element={<RecordingView />} />
-					<Route path="/team" element={<TeamView />} />
-					<Route path="/usage" element={<UsageView />} />
-					<Route path="/documentation" element={<DocumentationView />} />
+					<Route path="/" element={<EditorView />} />
+					<Route path="/editor" element={<EditorView />} />
 					<Route path="*" element={<NotFoundView />} />
 				</Routes>
 			</div>

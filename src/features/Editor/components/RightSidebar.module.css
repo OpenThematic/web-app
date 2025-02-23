@@ -1,0 +1,7 @@
+#sidebar {
+	flex-shrink: 0;
+	width: 30rem;
+	background-color: var(--color-background);
+	border-left: .1rem solid var(--color-text);
+	overflow-y: auto;
+}
