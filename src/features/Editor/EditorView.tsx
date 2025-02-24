@@ -140,6 +140,9 @@ const EditorView = () =>
 	return <>
 		<div id={styles.view}>
 			<div id={styles.middlePanel}>
+				<div id={styles.header}>
+					Ecological solutions
+				</div>
 				<div id={styles.content}>
 					{!transcript && <FileInput text={"Add JSON"} onChange={loadJson} />}
 					{transcript && (

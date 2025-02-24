@@ -5,3 +5,20 @@
 	border-left: .1rem solid var(--color-text);
 	overflow-y: auto;
 }
+
+#sidebar > div:first-of-type {
+	height: 7rem;
+	padding: 1rem 3rem;
+	border-bottom: .1rem solid var(--color-text);
+}
+
+#sidebar > div:not(:first-of-type) {
+	min-height: 15rem;
+	border-bottom: .1rem solid var(--color-text);
+}
+
+.header {
+	padding: 1rem 3rem;
+	color: var(--color-text-light);
+	background-color: var(--color-background-dark-2);
+}

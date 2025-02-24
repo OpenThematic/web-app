@@ -10,9 +10,20 @@
 	flex-direction: column;
 }
 
+#header {
+	height: 7rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--color-primary);
+	font-weight: bold;
+	background-color: var(--color-background-dark-2);
+}
+
 #content {
 	flex: 1;
 	padding: 10rem;
+	overflow-y: auto;
 }
 
 #audioPlayer {

@@ -7,6 +7,7 @@
 }
 
 #sidebar > div:first-of-type {
+	height: 7rem;
 	padding: 1rem 3rem;
 	border-bottom: .1rem solid var(--color-text);
 }
