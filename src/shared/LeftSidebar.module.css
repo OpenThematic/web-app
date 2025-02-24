@@ -6,37 +6,32 @@
 	overflow-y: auto;
 }
 
-#sidebar > div {
-	padding: 5rem;
+#sidebar > div:first-of-type {
+	padding: 1rem 3rem;
+	border-bottom: .1rem solid var(--color-text);
 }
 
-.logo {
-	display: flex;
-	gap: 1rem;
-	font-size: 2rem;
-	font-family: Roboto Slab;
-	font-weight: bold;
+.header {
+	padding: 1rem 3rem;
+	color: var(--color-text-light);
+	background-color: var(--color-background-dark-2);
 }
 
-.logo > img {
-	height: 3rem;
-	width: 3rem;
-}
-
-#sidebar ul {
+ul {
 	margin: 0;
-	padding: 0;
+	padding: 1rem 0;
 	list-style: none;
 }
 
-#sidebar ul > a {
+ul > a {
 	display: contents;
 }
 
-#sidebar ul li {
+ul li {
+	padding: 2rem 3rem;
 	color: var(--color-text);
 }
 
-#sidebar ul li:hover {
-	color: var(--color-background);
+ul li:hover {
+	color: var(--color-text-light);
 }
